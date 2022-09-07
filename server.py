@@ -2,7 +2,7 @@
 # from app import application
 # Example:
 
-from app import app
+from app.app import app
 
 # Import CherryPy
 import cherrypy
