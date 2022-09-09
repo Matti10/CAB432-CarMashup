@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -16,7 +17,12 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
     </head>
+    {% extends 'bootstrap/base.html' %}
+    {% import "bootstrap/wtf.html" as wtf %}
+    {% block body %}
+
     <body id="page-top">
+        
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
@@ -44,15 +50,21 @@
                 <a class="btn btn-primary btn-xl text-uppercase" href="#CarPicker">Lets go!!</a>
             </div>
         </header>
+	
+
+
         <!-- CarPicker-->
         <section class="page-section" id="CarPicker">
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Car Picker</h2>
-                    <h3 class="section-subheading text-muted">Choose one of your Favourite Cars<h3>
+                    <h3 class="section-subheading text-muted">Choose one of your Favourite Cars</h3>
+
+                    
+                    {{ wtf.quick_form(form)}}
+                    {{name}}
                 </div>
                 <div class="row text-center">
-                    Form here!!
 
                     <a class="btn btn-primary btn-xl text-uppercase" href="#CarPicker">Search for Similar Cars</a>
             </div>
@@ -585,4 +597,6 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
+    {% endblock %}
+
 </html>

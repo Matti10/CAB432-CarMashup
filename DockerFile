@@ -22,9 +22,14 @@ RUN apt-get update && apt-get install -y \
  python3-pip \
  tar \
  wget
+ 
 # Get pip3 to download and install Python requirements:
 RUN pip3 install flask
 RUN pip3 install cherrypy
+RUN pip3 install Flask-Bootstrap4
+RUN pip3 install Flask-WTF
+RUN pip install requests
+
 
 # Copy the application folder inside the container
 ADD /app /app
