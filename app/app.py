@@ -25,6 +25,7 @@ class SelectionForm(FlaskForm):
 
 
 def getImgURLs(searchTerm):
+    # https://stackoverflow.com/questions/49952518/trying-to-extract-the-source-link-of-the-first-image-of-a-google-search-using-be
     # get images
     # params = {
     #     "api_key": serpKey,
