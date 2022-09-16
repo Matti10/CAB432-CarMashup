@@ -29,7 +29,10 @@ RUN pip3 install cherrypy
 RUN pip3 install Flask-Bootstrap4
 RUN pip3 install Flask-WTF
 RUN pip install requests
-
+RUN pip install wtforms
+RUN pip install wtforms
+RUN pip install serpapi
+RUN pip install types
 
 # Copy the application folder inside the container
 ADD /app /app
