@@ -31,7 +31,7 @@ RUN pip3 install Flask-WTF
 RUN pip install requests
 RUN pip install wtforms
 RUN pip install wtforms
-RUN pip install serpapi
+RUN pip install google-search-results
 RUN pip install types
 
 # Copy the application folder inside the container
