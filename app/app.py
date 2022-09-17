@@ -155,12 +155,6 @@ def index():
 
     return render_template('index.html',carData=carData,form=form,model=model,images=images,similar=similar)
 
-@app.route("/hello/")
-@app.route("/hello/<var>")
-def helloFlask(var="DefaultValue"):
-    return render_template('helloFromFlask.html',carData=var)
-    
-
 
 if __name__ == "__main__":
     app.run()
