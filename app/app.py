@@ -7,7 +7,10 @@ import requests
 from serpapi import GoogleSearch
 import os, json
 from types import SimpleNamespace
+import boto3
 
+#init s3 client
+s3 = boto3.client('s3')
 
 serpKey = '2d71a3fcd8c12e9ec250ddb9dd9743f008a2f71d795430ea67fb3aaa7d0b2247'
 ninjaKey = 'k97Uta4mX0lUYEmNVdUDEg==c8U5pnVM77PBhcXP'
@@ -88,6 +91,11 @@ def getSimilarCars(someCar):
         car.images = getImgURLs(car.model + " " + str(car.year))
 
     return carData
+
+def getSiteCounter():
+    s3.download_file('sitecounter', 'siteCounter', 'count.txt')
+
+# def setSiteCounter():
 
 @app.route("/",methods = ['POST', 'GET'])
 def index():

@@ -32,7 +32,7 @@ RUN pip install requests
 RUN pip install wtforms
 RUN pip install wtforms
 RUN pip install google-search-results
-RUN pip install types
+RUN pip install boto3
 
 # Copy the application folder inside the container
 ADD /app /app
