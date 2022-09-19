@@ -24,11 +24,12 @@ AWS_Bucket = 'sitecounter'
 AWS_Object = 'siteCounter/count.txt'
 s3 = boto3.client(
     's3',
-    aws_access_key_id="ASIA5DYSEEJ4XIKIVBPM",
-    aws_secret_access_key="bcqDJi7yFj7zq5d1BX34ujLkeSW6pFP8mPLbjPay",
-    aws_session_token="IQoJb3JpZ2luX2VjEGMaDmFwLXNvdXRoZWFzdC0yIkgwRgIhANN5jkW5YEEuF2sxC26CfjMOgzSpjdN5a/Z6Ew8bliQdAiEAsKWizA455YXEg3C4AHhk8Hdx/G75fCwNe59LGVADRHgquQMI/P//////////ARACGgw5MDE0NDQyODA5NTMiDG6Vato/nvIWMxZnRyqNA8Y9b6u6xC2/D0mw6jmxthPTwcB9evYmEse+4X/g3UF1l8ytN94c0XpuEuzmmJN5B0L3vec/rCILz5I/HwdEKD1Rxk0l20oBgsp9y2zEPuVv5Xv9XEl8ta5QK+lGr1fOCxxzpO5ucHPjXwg+JHJTh37mdp0BxBPFPPBHYQ0XtTvdp7I0EdXffOkWkpzxzJGTP9Sik5KV7VrbOGUeZ+gGhnfYFQhKYFNv28CqI+dNA13eG8vJJ2bGtgboPDeyRi4MCsqwuUZoTylbGrkAckYV2gdOH8lGK9OW6HvBKVR2i7iF8pCq5HM+VjZddlIE73iVxCBwO1YoCNQPkJ83XaiIVb8JYF5FZRt9qd1FpdJ56P1cUoXKYW+rQuIj82+Uyh/1bDX0LrQYk4j7sHLd/BhilHtzfym9tgaRgs46RaAh7piE8ueU+l1KBvJ+YrpDnM7qxqzxX/c09WWQMQyrbSId9dnjlqcqdn9AD9O2N4Ww3hdWmlXouwUScpLSHNJuNy6jIwXDHWdAz84zv8FfFiMwvPaUmQY6pQFqHiKUbCYR4M8C65L+a8Xe+/5nVw7op9bHL6hftQin2qXbjFmQve2cSsgi6HcBW1s+EU9F22aiT+eEmhGxLBO6ib2iy4sh5/0i68BLsaG5nn+2t1Vp6pJ19akF3ILQjKLMe/GJwLxBHH6sPx/e5FYufD9Z15L9iqXcz9CYkDR7I56EqNFsI4jg8jLtGVU1W7Bn+Xm2TffjlqaNrdTMx9MuJEPdBvg=",
+    aws_access_key_id="ASIA5DYSEEJ4TR7N6PHO",
+    aws_secret_access_key="X57pkLDRQ97c3rHxpdnQq3aZoKihk+BNoOM8ihAO",
+    aws_session_token="IQoJb3JpZ2luX2VjEJf//////////wEaDmFwLXNvdXRoZWFzdC0yIkYwRAIgXrlUy8/wzJYLuVAidkeefDM8LOP1TfrWflQyYj/xQJECIC2RZvFdtW7Nzh6avsEf2bOVxYltKDFdo7WyASP/Zy2PKrADCEAQAhoMOTAxNDQ0MjgwOTUzIgyt7qiC3fXIsxYR+7YqjQOt6mGoyvoUrcxxDVTVm4mZUxZbZwIKMhopisvIz3kE5vYcP/meHBAqmtcAOqoOcAZPvOuBAtJYGEy3rNDXQ/nUqfA6wk0wdegAENVKB4SeSg5X9E9OY6Ay1g9vXUiS+m+zMTlUreHqhlFcdPKsrwIIJ/G3eS1sqONSxC71dQWi/8rPsPmtRdy/5pC4DWD6Dh2u9gbUwvgeD3RzAQxdKSybiP06HbMSTkW8zsm4uvUlMNhPNlP3fxRklj09lDag3Vc3iM4gLGlYrOdDRl2HKObzUJ2bWT1eL3opPMMgPTEYu/jx/uRIYncnc/oPT44kL8/ZxWpnKOI26BYh+DU0dRm0ws090cLg61FR1LpRRtogaEKJong5dEnKGj08Z6zUUGTsA4whAPziRG+G/rFT7RWo6n71TRTrWJKJ2rzPD2d/85Ln81t121VObpdBcB2mnEHCx56nisSd15kDTPSrpusygH5xjj4A72XjTa37UYZBqsYrsn/gS9zEG37W33RA7feu5zvgiQnZ1e89d8MpMImroJkGOqcBedfNNTiffGh0HnV0xiDluEyewXwqwIlImZoQLAljYn+eN6oTIrHkpZg3b8Z8/aniX73iDciblKDjaPmjp3ElstptK7/5nycl4BpO3rPPCxxZ5M06PjkEqerLGe31nzCCuIPFdYdo3kGjcpdpgVUffjmr+aIQAnmKokx0NfJcJpXdhONv7d5qnLPQWQjqncuXtl9lFeqCqhGptYJeB4nuGv4H7mBScZg=",
     config=awsConfig
 )
+
 
 #in a 'real' deployment,  these keys would this stored far more securely... Lucky this isn't a web security course ;)
 
@@ -104,31 +105,45 @@ def getSimilarCars(someCar):
         return ""
 
     #convert to an objecy
-    # carData = json.loads(carData, object_hook=lambda d: SimpleNamespace(**d))
-    # count = 0
-    # # getImages for each car
-    # for i in range(0,len(carData)-1):
-    #     for j in carData[:i]:
-    #         print(i," ",j)
-    #         if (carData[i].model == j.model):
-    #             carData.remove(carData[i])
-    #         else:
-    #             carData[i].images = getImgURLs(carData[i].model + " " + str(carData[i].year))
-    #             count += 1
-
-    #convert to an objecy
     carData = json.loads(carData, object_hook=lambda d: SimpleNamespace(**d))
 
-    # getImages for each car
-    for car in carData:
-        car.images = getImgURLs(car.model + " " + str(car.year))
+    carData = iter(carData)
+    filteredCarData = []
 
-        # if count >= 6:
-    return carData
+    def innerLoopHelper(car):
+        for filteredCar in filteredCarData:
+            if car.model == filteredCar.model:
+                return False
+        return True
+    
+    while len(filteredCarData) < 6:
+        car = next(carData)
+        print(car)
+        if innerLoopHelper(car):
+            filteredCarData.append(car)
+
+    returnList = []
+
+    for car in filteredCarData:
+        # getImages for each car
+        car.images = getImgURLs(car.model + " " + str(car.year))
+        #tidy up some headings while we're here
+        car.model = car.model.capitalize()
+        car.make = car.make.capitalize()
+
+        #convert them all to lists
+        returnList.append(list(car.__dict__.items()))
+
+    print(filteredCarData)
+    return returnList
 
 def getSiteCounter():
-    #download counter from aws
-    # s3.download_file(AWS_Bucket, AWS_Object, siteConterPath)
+    try:
+        #download counter from aws
+        s3.download_file(AWS_Bucket, AWS_Object, siteConterPath)
+    except:
+        print("AWS Connection not working, are your keys up to date?")
+
 
     #open counter file
     counterFile = open(siteConterPath, "r")
@@ -142,8 +157,13 @@ def getSiteCounter():
 
 
 def setSiteCounter():
-    # s3.upload_file(siteConterPath, AWS_Bucket, AWS_Object)
-    print("ee")
+    try:
+        #upload counter from aws
+        s3.upload_file(siteConterPath, AWS_Bucket, AWS_Object)
+    except:
+        print("AWS Connection not working, are your keys up to date?")
+
+
 
 def tickSiteCounter():
     
