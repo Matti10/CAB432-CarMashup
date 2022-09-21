@@ -9,7 +9,8 @@ FROM ubuntu
 MAINTAINER Mattias Winsen (n10467874)
 
 # Install basic applications, Python, Python tools
-RUN apt-get update && apt-get install -y \
+RUN apt-get update
+RUN apt-get install -y \
  build-essential \
  curl \
  dialog \
@@ -31,6 +32,7 @@ RUN pip3 install Flask-WTF
 RUN pip install requests
 RUN pip install wtforms
 RUN pip install wtforms
+RUN pip install google-search
 RUN pip install google-search-results
 RUN pip install boto3
 
