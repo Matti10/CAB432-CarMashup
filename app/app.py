@@ -49,27 +49,28 @@ class SelectionForm(FlaskForm):
 
 
 def getImgURLs(searchTerm):
-    # # https://stackoverflow.com/questions/49952518/trying-to-extract-the-source-link-of-the-first-image-of-a-google-search-using-be
-    # # get images
-    # params = {
-    #     "api_key": serpKey,
-    #     "engine": "google",
-    #     "q": searchTerm + "car",
-    #     "tbm": "isch"
-    # }
+    # https://stackoverflow.com/questions/49952518/trying-to-extract-the-source-link-of-the-first-image-of-a-google-search-using-be
+    # get images
+    params = {
+        "api_key": serpKey,
+        "engine": "google",
+        "q": searchTerm + "car",
+        "tbm": "isch"
+    }
 
-    # search = GoogleSearch(params)
-    # results = search.get_dict()
+    search = GoogleSearch(params)
+    results = search.get_dict()
 
     
-    # results = (json.dumps(results['images_results'], indent=2, ensure_ascii=False))
-    # results = json.loads(results, object_hook=lambda d: SimpleNamespace(**d))
+    results = (json.dumps(results['images_results'], indent=2, ensure_ascii=False))
+    results = json.loads(results, object_hook=lambda d: SimpleNamespace(**d))
 
-    # images = []
-    # for image in results[:6]:
-    #     images.append(image.original)
+    images = []
+    for image in results[:6]:
+        images.append(image.original)
 
-    images = ['https://cars.usnews.com/pics/size/350x262/images/Auto/izmo/309572/2010_toyota_camry_angularfront.jpg', 'https://pictures.dealer.com/k/keyestoyotaofvannuys/0501/4872b675b5becbdecc9474d949bf3187x.jpg?impolicy=resize&w=414', 'https://akimage.vinsolutions.com/v/1893240000/1893243192/r640', 'https://imgd.aeplcdn.com/1280x720/n/cw/ec/110233/2022-camry-exterior-right-front-three-quarter.jpeg?isig=0&q=75', 'https://platform.cstatic-images.com/xxlarge/in/v2/895a83c1-23e5-5f56-b89e-31ed1b8c29a6/3818da75-fb63-40a8-9766-0ec4bf772a55/Gfg9DPiKUNcjtceRll9ZtItiYGI.jpg', 'https://imgd.aeplcdn.com/1056x594/n/hn7kpua_1557405.jpg?q=75']
+    #static links to some test images, to save API calls when testing
+    # images = ['https://cars.usnews.com/pics/size/350x262/images/Auto/izmo/309572/2010_toyota_camry_angularfront.jpg', 'https://pictures.dealer.com/k/keyestoyotaofvannuys/0501/4872b675b5becbdecc9474d949bf3187x.jpg?impolicy=resize&w=414', 'https://akimage.vinsolutions.com/v/1893240000/1893243192/r640', 'https://imgd.aeplcdn.com/1280x720/n/cw/ec/110233/2022-camry-exterior-right-front-three-quarter.jpeg?isig=0&q=75', 'https://platform.cstatic-images.com/xxlarge/in/v2/895a83c1-23e5-5f56-b89e-31ed1b8c29a6/3818da75-fb63-40a8-9766-0ec4bf772a55/Gfg9DPiKUNcjtceRll9ZtItiYGI.jpg', 'https://imgd.aeplcdn.com/1056x594/n/hn7kpua_1557405.jpg?q=75']
 
     return images
 
@@ -77,7 +78,7 @@ def getCarInfo(model, year=""):
     #get model data
     if year != "":
         print("using year")
-        api_url = 'https://api.api-ninjas.com/v1/cars?model={}&year={}'.format(model,year)
+        api_url = 'https://api.api-ninjas.com/v1/cars?model={model}&year={year}'.format(model=model,year=str(year))
     else:
         print("no year")
         api_url = 'https://api.api-ninjas.com/v1/cars?model={}'.format(model)
